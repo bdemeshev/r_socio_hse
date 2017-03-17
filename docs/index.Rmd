@@ -18,6 +18,10 @@ lang: ru-RU
 * Texlive
 * Anaconda
 
+## Данные
+
+* [Покемоны](https://github.com/bdemeshev/r_socio_hse/raw/master/datasets/pokemon.csv)
+
 
 ## Материалы
 
