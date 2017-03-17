@@ -4,14 +4,14 @@ output: html_document
 lang: ru-RU
 ---
 
-## Расписание:
+## Семинары:
 
 
-* 17 марта 2017. Установка R, Rstudio. Где найти справку. Загрузка .csv файлов. Отбор переменных, сортировка, описательные статистики. Создание векторов. NA/NaN.
+* 17 марта 2017. Установка R, Rstudio. Где найти справку. Загрузка .csv файлов. Отбор переменных, сортировка, описательные статистики. Создание векторов. NA/NaN. Файлы: [script_01.R](https://github.com/bdemeshev/r_socio_hse/raw/master/script_01.R) и [домашка-1](https://github.com/bdemeshev/r_socio_hse/raw/master/ht_01.pdf).
 
 План:
 
-* 24 марта 2017. План: отбор наблюдений, группировка данных, работа с факторными переменными. Если успеем: стратегия "Разделяй и властвуй" (split-apply-combine strategy).
+* 24 марта 2017. Отбор наблюдений, группировка данных, работа с факторными переменными. Если успеем: стратегия "Разделяй и властвуй" (split-apply-combine strategy). 
 
 * 29 марта 2017. Визуализация данных
 
@@ -28,10 +28,6 @@ lang: ru-RU
 * 19 мая 2017.  Итоговый контроль - эссе
 
 Место: Мясницкая 9/11, ауд. 324. Приносите свои ноутбуки!!
-
-## Файлы с семинаров:
-
-* 17 марта 2017. [script_01.R](https://github.com/bdemeshev/r_socio_hse/raw/master/script_01.R), [домашка-1](https://github.com/bdemeshev/r_socio_hse/raw/master/ht_01.pdf).
 
 
 ## Установка софта:
@@ -82,4 +78,4 @@ lang: ru-RU
 
 
 -------
-Созданные мной для данного курса материалы распространяются по лицензии [Creative Commons Attribution-NonCommercial-ShareAlike](http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ru)
+Созданные [мной](https://bdemeshev.github.io/about/) для данного курса материалы распространяются по лицензии [Creative Commons Attribution-NonCommercial-ShareAlike](http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ru)
