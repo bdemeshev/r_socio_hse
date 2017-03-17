@@ -21,7 +21,7 @@ lang: ru-RU
 
 ## Материалы
 
-* Кабаков Р.И. R в действии. [Анализ и визуализация данных на языке R](kek.ksu.ru/eos/WM/Kabacoff2014ru.pdf)
+* Кабаков Р.И. R в действии. [Анализ и визуализация данных на языке R](http://kek.ksu.ru/eos/WM/Kabacoff2014ru.pdf)
 * Шипунов А.Б., Балдин Е.М. и др. [Наглядная статистика. Используем R!](http://ashipunov.info/shipunov/school/books/rbook.pdf) 
 * Мастицкий С.Э., Шитиков В.К., [Статистический анализ и визуализация с помощью R](http://www.ievbras.ru/ecostat/Kiril/R/Mastitsky%20and%20Shitikov%202014.pdf)
 * [Шпаргалки по R](https://www.rstudio.com/resources/cheatsheets/) от Rstudio
@@ -35,17 +35,11 @@ lang: ru-RU
 * [Блог r-analytics](http://r-analytics.blogspot.ru). На нём есть несколько
 других подборок русскоязычных ресурсов по R:
 [раз](http://r-analytics.blogspot.ru/p/blog-page_20.html) и
-[два](http://r-analytics.blogspot.ru/p/blog-page_80.html). * [Группа вконтакте
-rstatistics](https://vk.com/rstatistics) * [Группа вконтакте
-spbrug](https://vk.com/spbrug) * [Группа вконтакте
-introstats](https://vk.com/introstats) * Венэбльз, Смит [Введение в
-R](http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/Venables%20%c2%e2%e5%e4%e5%ed%e8%e5%20%e2%20R.pdf)
-* Зарядов И.С. [Введение в R: часть
-1](http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/%c7%e0%f0%ff%e4%ee%e2%20%f7%e0%f1%f2%fc_1.pdf)
-* Зарядов И.С. [Введение в R: часть
-2](http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/%c7%e0%f0%ff%e4%ee%e2%20%f7%e0%f1%f2%fc_2.pdf)
-* Борис Демешев [Цикл маленьких заметок по
-R](http://bdemeshev.github.io/r_cycle/)
+[два](http://r-analytics.blogspot.ru/p/blog-page_80.html). 
+* Группы вконтакте: [rstatistics](https://vk.com/rstatistics), [spbrug](https://vk.com/spbrug), [introstats](https://vk.com/introstats) 
+* Венэбльз, Смит [Введение в R](http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/Venables%20%c2%e2%e5%e4%e5%ed%e8%e5%20%e2%20R.pdf)
+* Зарядов И.С. Введение в R: [часть 1](http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/%c7%e0%f0%ff%e4%ee%e2%20%f7%e0%f1%f2%fc_1.pdf), [часть 2](http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/%c7%e0%f0%ff%e4%ee%e2%20%f7%e0%f1%f2%fc_2.pdf)
+* Борис Демешев [Цикл маленьких заметок по R](http://bdemeshev.github.io/r_cycle/)
 
 ### Вопросы и ответы:
 
