@@ -1,0 +1,62 @@
+---
+title: "Количественный анализ социальных данных с помощью пакета R"
+output: html_document
+lang: ru-RU
+---
+
+
+## Файлы с семинаров:
+
+* 17 марта 2017
+
+
+## Установка софта:
+
+* R
+* Rstudio
+* Atom
+* Texlive
+* Anaconda
+
+
+## Материалы
+
+* Кабаков Р.И. R в действии. [Анализ и визуализация данных на языке R](kek.ksu.ru/eos/WM/Kabacoff2014ru.pdf)
+* Шипунов А.Б., Балдин Е.М. и др. [Наглядная статистика. Используем R!](http://ashipunov.info/shipunov/school/books/rbook.pdf) 
+* Мастицкий С.Э., Шитиков В.К., [Статистический анализ и визуализация с помощью R](http://www.ievbras.ru/ecostat/Kiril/R/Mastitsky%20and%20Shitikov%202014.pdf)
+* [Шпаргалки по R](https://www.rstudio.com/resources/cheatsheets/) от Rstudio
+* Tibshirani, [An introduction to statistical learning](http://www-bcf.usc.edu/~gareth/ISL/)
+
+### На русском также могут быть полезны:
+
+* Стилевое руководство гугла:
+[english](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml),
+[русский](https://9ccb6b88-a-cba0391b-s-sites.googlegroups.com/a/kiber-guu.ru/r-practice/links/R_style_from_Google.pdf?attachauth=ANoY7crkge5FhA5LZtMwj6Ilur-WbnkKLijkDkoB01VZZAlsFoRjEo7YwgqvW-Gid6ffwBmz3TMT51kMnw8JljZeQlDPRXMKZctirezqTziipn5TOaB9D1IaQ7qzTSusjkIyYV2jMchrhAsXOHTo_G0VRztBxYeecm4HYS19M1VTxn-UluL_9tYpsOEpDvhV1ghlRvk57pCxDO3C4wSV63SQIy0p7cjo6r-HB6Dj0CG7iNKM_RTjaAw%3D&attredirects=0)
+* [Блог r-analytics](http://r-analytics.blogspot.ru). На нём есть несколько
+других подборок русскоязычных ресурсов по R:
+[раз](http://r-analytics.blogspot.ru/p/blog-page_20.html) и
+[два](http://r-analytics.blogspot.ru/p/blog-page_80.html). * [Группа вконтакте
+rstatistics](https://vk.com/rstatistics) * [Группа вконтакте
+spbrug](https://vk.com/spbrug) * [Группа вконтакте
+introstats](https://vk.com/introstats) * Венэбльз, Смит [Введение в
+R](http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/Venables%20%c2%e2%e5%e4%e5%ed%e8%e5%20%e2%20R.pdf)
+* Зарядов И.С. [Введение в R: часть
+1](http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/%c7%e0%f0%ff%e4%ee%e2%20%f7%e0%f1%f2%fc_1.pdf)
+* Зарядов И.С. [Введение в R: часть
+2](http://www.ievbras.ru/ecostat/Kiril/R/Biblio/R_rus/%c7%e0%f0%ff%e4%ee%e2%20%f7%e0%f1%f2%fc_2.pdf)
+* Борис Демешев [Цикл маленьких заметок по
+R](http://bdemeshev.github.io/r_cycle/)
+
+### Вопросы и ответы:
+
+* [stackoverflow](http://stackoverflow.com/) Если возникли проблемы с
+программированием в R (и не только в R), а документация уже прочитана...
+* [stats.stackexchange](http://stats.stackexchange.com/) Можно спросить по
+статистическим методам и их реализации в R.
+* [tex.stackexchange](http://tex.stackexchange.com/) Вопросы и ответы про LaTeX
+
+
+
+
+-------
+Созданные мной для данного курса материалы распространяются по лицензии [Creative Commons Attribution-NonCommercial-ShareAlike](http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ru)
