@@ -33,11 +33,11 @@ lang: ru-RU
 
 ## Установка софта:
 
-* R
-* Rstudio
-* Atom
-* Texlive
-* Anaconda
+* [R](https://www.r-project.org/)
+* [Rstudio](https://www.rstudio.com/products/rstudio/download/)
+* [Atom](https://atom.io/)
+* [Texlive](https://www.tug.org/texlive/)
+* [Anaconda](https://www.continuum.io/downloads)
 
 ## Данные
 
