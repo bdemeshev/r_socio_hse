@@ -29,6 +29,7 @@ lang: ru-RU
 
 Место: Мясницкая 9/11. Приносите свои ноутбуки!!
 
+По возможности будут [видео записи лекций](https://www.youtube.com/playlist?list=PL1poMUvVlAqcma4pOO_ldFxang7D2CsVi).
 
 ## Установка софта:
 
