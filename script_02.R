@@ -121,12 +121,12 @@ adv4 <- arrange(adv3, -Sales) %>%
 # список функций пакета:
 help(package = "dplyr")
 
-library(psych)
+library(psych) # в частности содержит функцию describe()
 adv %>% select(Sales) %>% describe() %>% 
   select(min, max)
 
-describe(adv) # 
-describe(adv$Sales)
+describe(adv) # описательные статистики по всем переменным
+describe(adv$Sales) # описательные статистики по одной переменной
 
 min(adv$TV) # минимум переменной TV из табличку adv
 mean(adv$TV) # среднее 
