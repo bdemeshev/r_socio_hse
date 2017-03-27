@@ -33,8 +33,8 @@ lang: ru-RU
 
 ## Установка софта:
 
-* [R](https://www.r-project.org/)
-* [Rstudio](https://www.rstudio.com/products/rstudio/download/)
+* [R + Rstudio](https://github.com/bdemeshev/installation/raw/master/docs/r/R_installation.html)
+* [stan / rstan](https://github.com/bdemeshev/installation/raw/master/docs/r_stan/r_stan_installation.html)
 * [Atom](https://atom.io/)
 * [Texlive](https://www.tug.org/texlive/)
 * [Anaconda](https://www.continuum.io/downloads)
