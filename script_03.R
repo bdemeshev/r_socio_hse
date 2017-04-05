@@ -61,3 +61,27 @@ joined_table <- left_join(diamonds, opisanie,
                           by = "color")
 glimpse(joined_table)
 
+count(diamonds, color) %>% arrange(n)
+count(opisanie, color) %>% arrange(n)
+
+# работа с факторными переменными
+
+# создадим факторную переменную из обычной :)
+igrushka <- data_frame(
+        x = c(3, 4, 4, 5, 2),
+        y = c("М", "Ж", "М", "Ж", "м"))
+igrushka
+# use cp1251 for non utf-8 program... (windows)
+glimpse(igrushka)
+
+igrushka2 <- mutate(igrushka, 
+                    fy = factor(y),
+                    fx = factor(x))
+glimpse(igrushka2)
+
+ggplot(data = diamonds) + 
+  geom_bar(aes(x = color))
+
+ggplot(data = igrushka2) + 
+  geom_bar(aes(x = fy, y = x), stat = "identity")
+
