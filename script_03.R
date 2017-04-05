@@ -52,3 +52,12 @@ glimpse(skleeni_stroki)
 skleeni_stroki_old <- rbind(diamonds3, 
                             diamonds4)
 # rbind — это предшественник bind_rows
+
+opisanie
+
+# левый джойн 
+# склеиваем две таблицы по переменной color
+joined_table <- left_join(diamonds, opisanie,
+                          by = "color")
+glimpse(joined_table)
+
