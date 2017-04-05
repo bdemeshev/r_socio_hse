@@ -11,4 +11,13 @@ diamonds %>% group_by(color) %>%
          naibolshee = max(price),
          seredina = median(price))
 
+opisanie <- diamonds %>% group_by(color) %>%
+  summarise(naimenshee = min(price),
+            naibolshee = max(price),
+            seredina = median(price),
+            kolichestvo = n())
+opisanie
 
+# самая популярная функция на группированных табличках
+# число наблюдений в группе
+count(diamonds, color)
