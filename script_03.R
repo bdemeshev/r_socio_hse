@@ -85,3 +85,11 @@ ggplot(data = diamonds) +
 ggplot(data = igrushka2) + 
   geom_bar(aes(x = fy, y = x), stat = "identity")
 
+# посмотрим на уровни факторной переменной
+levels(igrushka2$fy)
+
+# объединяем несколько уровней в один
+igrushka3 <- mutate(igrushka2, 
+  fy_united = 
+    fct_collapse(fy, male = c("М", "м")))
+glimpse(igrushka3)
