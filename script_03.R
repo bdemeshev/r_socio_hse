@@ -93,3 +93,27 @@ igrushka3 <- mutate(igrushka2,
   fy_united = 
     fct_collapse(fy, male = c("М", "м")))
 glimpse(igrushka3)
+
+# внутренние коды факторных переменных
+# о которых Винни-Пух может не задумываться :)
+# as.numeric(igrushka3$fy_united)
+
+ggplot(data = igrushka3) + 
+  geom_bar(aes(x = fy_united, y = x), stat = "identity")
+igrushka3
+
+# изменяю порядок уровней: по первому упоминанию в наборе данных
+igrushka4 <- mutate(igrushka3,
+        fy_united = fct_inorder(fy_united))
+
+ggplot(data = igrushka4) + 
+  geom_bar(aes(x = fy_united, y = x), stat = "identity")
+
+# изменяю порядок уровней по частоте уровня
+igrushka5 <- mutate(igrushka3,
+            fy_united = fct_infreq(fy_united))
+
+ggplot(data = igrushka5) + 
+  geom_bar(aes(x = fy_united, y = x), stat = "identity")
+
+
