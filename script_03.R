@@ -41,4 +41,14 @@ diamonds4 <- rename(diamonds3, raznost = otklonenie)
 
 Захвати Галактику!
   
+# склеиваем столбцы двух таблиц (одинаковое количество строк)
+dubl <- bind_cols(diamonds3, diamonds4)
+  
+skleeni_stroki <- bind_rows(diamonds3, 
+                            diamonds4)  
+glimpse(skleeni_stroki)
 
+# в память о команде rbind устроить перерыв :)
+skleeni_stroki_old <- rbind(diamonds3, 
+                            diamonds4)
+# rbind — это предшественник bind_rows
