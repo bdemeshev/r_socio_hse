@@ -65,4 +65,30 @@ d2 <- mutate(diamonds, cut2 = fct_collapse(cut,
 d3 <- mutate(d2, cut3 = fct_relevel(cut2, "Good"))
 
 glimpse(d3) 
-View(d3) # как в экселе
+View(d3) # как в экселе: можно filter использовать
+
+model <- lm(data = d3, log(price) ~ log(carat) + cut3)
+summary(model)
+
+d4 <- mutate(d3, cut_info = (cut3 > "Good"))
+
+sjp.lm(model)
+
+diamonds %>% group_by(cut) %>% 
+  summarise(av = mean(price))
+
+# для парной регрессии — график в осях x-y
+mod_0 <- lm(data = diamonds, 
+            price ~ carat)
+summary(mod_0)
+sjp.lm(mod_0)
+
+# что извлечь из модели
+library(broom) # три уровня информации о любой модел
+# общие показатели / коэффициенты / дополнение реальных данных
+glance(model) # общие показатели
+tidy(model) # коэффициенты
+
+library(modelr) # работа с моделями
+
+
