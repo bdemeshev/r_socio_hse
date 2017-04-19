@@ -33,3 +33,16 @@ dia_rds <- read_rds("~/Downloads/diamonds.Rds")
 setwd("~/Downloads/")
 getwd()
 
+
+# как реализовывать взвешивание для репрезентативных выборок?
+# направить взор к пакету survey
+library(survey)
+des <- svydesign() # 
+model <- svyglm() # 
+
+# метод наименьших квадратов и его визуализация
+
+
+
+
+
