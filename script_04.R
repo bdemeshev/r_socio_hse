@@ -91,4 +91,31 @@ tidy(model) # коэффициенты
 
 library(modelr) # работа с моделями
 
+# добавим предсказанные y (игрек с крышкой)
+d_new <- add_predictions(d3, model) 
+
+# добавим предсказанные y (игрек с крышкой)
+# и остатки за одно действие
+d_new <- add_predictions(d3, model) %>%
+                       add_residuals(model)
+
+# добавить всё к исходным данным
+d_super <- augment(model, d3)
+
+# стандартизованные коэффициенты:
+# нормируем все переменные 
+# и строим регрессию для нормированных переменных
+# стандартизированные коэффициенты:
+sjp.lm(model, type = "std")
+# исходные коэффициенты:
+sjp.lm(model)
+
+lm(data = diamonds, scale(price) ~ scale(carat))
+# достать стандартизированные коэффициенты в одну строку и быстро?
+
+# грамотное программирование / literate programming
+# Tools - Install packages - rmarkdown
+
+
+
 

@@ -1,0 +1,26 @@
+---
+title: "Ворчалка"
+author: "Винни-Пух"
+date: "19 April 2017"
+output:
+  word_document: default
+  html_document: default
+lang: ru-RU
+---
+
+Привет, дорогая _Маша_!
+
+Мы делаем серьёзное **исследование**.
+
+```{r}
+library(tidyverse)
+model <- lm(data = diamonds, price ~ carat)
+summary(model)
+```
+
+Маша, смотри, какой график!
+```{r}
+library(sjPlot)
+sjp.lm(model)
+```
+
