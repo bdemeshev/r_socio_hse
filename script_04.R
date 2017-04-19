@@ -41,8 +41,28 @@ des <- svydesign() #
 model <- svyglm() # 
 
 # метод наименьших квадратов и его визуализация
+glimpse(diamonds)
 
+model <- lm(data = diamonds, log(price) ~ log(carat) + cut)
 
+# bad syntax style
+# model<-lm(data=diamonds,log(price)~log(carat)+cut)
+summary(model)
+levels(diamonds$cut)
 
+# ? короткие коды для факторной переменной
 
+# вспомним прошлое
+# 1. объединим уровни Premium и Ideal в preideal
+# 2. за базовый уровень возьмем Good
 
+library(forcats)
+# 1. объединим уровни Premium и Ideal в preideal
+d2 <- mutate(diamonds, cut2 = fct_collapse(cut, 
+                          preideal = c("Premium", "Ideal")))
+# 2. за базовый уровень возьмем Good
+?fct_relevel
+d3 <- mutate(d2, cut3 = fct_relevel(cut2, "Good"))
+
+glimpse(d3) 
+View(d3) # как в экселе
