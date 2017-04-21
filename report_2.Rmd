@@ -3,8 +3,8 @@ title: "О правильности пчёл"
 author: "Винни-Пух"
 date: "21 April 2017"
 output:
-  word_document: default
   html_document: default
+  word_document: default
 lang: ru-RU
 ---
 
@@ -35,4 +35,21 @@ f(x) = \frac{1}{\sqrt{(2\pi)^n \det(\Sigma)}}
 
 
 ## Неправильный мёд 
+
+Чтобы вставить шмат кода, мы кликаем Code - Insert chunk.
+
+```{r}
+Sys.setenv(LANG = "en")
+library(tidyverse) # пакет для обработки данных
+library(vcd) # пакет для визуализации качественных переменных
+# library(polnaya_fignia)
+```
+
+Изучаем набор данных про бриллианты.
+
+В этом наборе данных 
+`r nrow(diamonds)` строк.
+
+
+
 
