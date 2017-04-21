@@ -38,12 +38,20 @@ f(x) = \frac{1}{\sqrt{(2\pi)^n \det(\Sigma)}}
 
 Чтобы вставить шмат кода, мы кликаем Code - Insert chunk.
 
-```{r}
+```{r, echo=TRUE, message=FALSE}
 Sys.setenv(LANG = "en")
 library(tidyverse) # пакет для обработки данных
 library(vcd) # пакет для визуализации качественных переменных
 # library(polnaya_fignia)
 ```
+
+Просто табличка с регрессией :)
+```{r}
+model_A <- lm(data = diamonds, 
+              price ~ carat + x + y + z)
+summary(model_A)
+```
+
 
 Изучаем набор данных про бриллианты.
 
