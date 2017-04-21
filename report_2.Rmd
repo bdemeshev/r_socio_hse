@@ -58,6 +58,21 @@ summary(model_A)
 В этом наборе данных 
 `r nrow(diamonds)` строк.
 
+Картинку в R-студию!
+```{r}
+mosaic(data = diamonds, 
+       shade = TRUE,
+       ~ cut + color)
+```
 
+результат в виде таблички
+```{r}
+table(diamonds$cut, diamonds$color)
+```
+
+для одной переменной
+```{r}
+table(diamonds$cut)
+```
 
 
