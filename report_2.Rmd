@@ -75,4 +75,22 @@ table(diamonds$cut, diamonds$color)
 table(diamonds$cut)
 ```
 
+Оформляем таблички :)
 
+пакеты для красивых табличек!
+```{r}
+library(DT) # динамические таблицы в html
+library(pander) # статические таблички
+library(knitr) # статические таблички
+```
+
+```{r, results="asis"}
+# table(diamonds$cut, diamonds$color) %>% datatable()
+```
+
+```{r, results="asis"}
+table(diamonds$cut, diamonds$color) %>% pander()
+```
+```{r, results="asis"}
+table(diamonds$cut, diamonds$color) %>% kable()
+```
