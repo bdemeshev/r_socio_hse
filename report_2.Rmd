@@ -3,8 +3,8 @@ title: "О правильности пчёл"
 author: "Винни-Пух"
 date: "21 April 2017"
 output:
-  html_document: default
   word_document: default
+  html_document: default
 lang: ru-RU
 ---
 
@@ -82,6 +82,7 @@ table(diamonds$cut)
 library(DT) # динамические таблицы в html
 library(pander) # статические таблички
 library(knitr) # статические таблички
+library(htmlTable) # больше html-таблиц 
 ```
 
 ```{r, results="asis"}
@@ -89,8 +90,15 @@ library(knitr) # статические таблички
 ```
 
 ```{r, results="asis"}
-table(diamonds$cut, diamonds$color) %>% pander()
+the_table <- table(diamonds$cut, diamonds$color)
+the_table %>% pander(caption = "Важно!", justify = 'rlcrlcrl',  
+emphasize.strong.cells = which(the_table > 1000, arr.ind = TRUE),
+style = "rmarkdown")
 ```
 ```{r, results="asis"}
 table(diamonds$cut, diamonds$color) %>% kable()
+```
+
+```{r, results="asis"}
+table(diamonds$cut, diamonds$color) %>% pandoc.table(caption = "Важно!")
 ```
