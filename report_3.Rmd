@@ -11,7 +11,7 @@ lang: ru-RU
 
 Как известно, большое количество информации мы доносим с помощью табличек!
 
-```{r}
+```{r, echo=TRUE, message=FALSE}
 library(tidyverse) # обработка данных и графики
 library(reshape2) # преобразование длинная - широкая таблица
 library(pander) # для облагораживания таблиц R в html, tex, docx
@@ -22,5 +22,9 @@ library(pander) # для облагораживания таблиц R в html, 
 head(mtcars)
 ```
 
+Лучше оформленная табличка!
+```{r, results='asis'}
+head(mtcars) %>% pander()
+```
 
 
