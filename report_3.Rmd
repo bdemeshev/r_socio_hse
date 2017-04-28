@@ -1,9 +1,11 @@
 ---
-title: "Полный вперёд!"
+title: "Новое название"
 author: "Винни-Пух"
 date: "28 апреля 2017"
 abstract: "Мёд бывает правильный и неправильный"
-output: word_document
+output: 
+  word_document:
+    reference_docx: shablon_2.docx
 lang: ru-RU
 ---
 
@@ -27,4 +29,15 @@ head(mtcars)
 head(mtcars) %>% pander()
 ```
 
+Ставим помощников: radiant, addinslist
+```{r}
+library(radiant)
+visualize(dataset = "diamonds", xvar = "price", custom = FALSE)
+```
+
+```{r}
+qplot(data = diamonds, 
+      x = carat,
+      y = price)
+```
 

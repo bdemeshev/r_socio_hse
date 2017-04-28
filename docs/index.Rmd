@@ -23,19 +23,17 @@ lang: ru-RU
 * 19 апреля 2017, ауд. 326. Сохранение данных. Метод наименьших квадратов. Извлекаем прогнозные значения, остатки, строим графики. Грамотное программирование — начало, [script_04.R](https://github.com/bdemeshev/r_socio_hse/raw/master/script_04.R), [report.Rmd](https://github.com/bdemeshev/r_socio_hse/raw/master/report.Rmd). 
 
 
+* 21 апреля 2017, ауд. 319а. Грамотное программирование — продолжение: [report_2.Rmd](https://github.com/bdemeshev/r_socio_hse/raw/master/report_2.Rmd).
 
-
-
-
-* 21 апреля 2017, ауд. 319а. Грамотное программирование — продолжение. Презентации. [report_2.Rmd](https://github.com/bdemeshev/r_socio_hse/raw/master/report_2.Rmd)
-
-* 28 апреля 2017, ауд. 320а.  Грамотное программирование - финал, [report_3.Rmd](https://github.com/bdemeshev/r_socio_hse/raw/master/report_3.Rmd)
+* 28 апреля 2017, ауд. 320а.  Грамотное программирование — окончание. R с менюшками: radiant, мелкие помощники addins: [report_3.Rmd](https://github.com/bdemeshev/r_socio_hse/raw/master/report_3.Rmd).
 
 План:
 
-* 12 мая 2017, ауд. 320а. Иерархические модели
+* 12 мая 2017, ауд. 320а. LASSO, авто-ARIMA, взвешенная регрессия. Пожалуйста, поставьте заранее пакеты `forecast`, `sophisthse`, `forecastHybrid`, `glmnet`.
 
-* 19 мая 2017, ауд. 320а.  Итоговый контроль - эссе
+* 17 мая 2017, ауд. ???. Иерархические модели — начало.
+
+* 19 мая 2017, ауд. 320а.  Иерархические модели — окончание. Вопросы-ответы.
 
 Место: Мясницкая 9/11. Приносите свои ноутбуки!!
 
