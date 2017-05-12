@@ -130,6 +130,13 @@ all_table <- aic_table %>% mutate(
 all_table
 ```
 
+Отбираем нужные столбцы и выводим 5 лет с самым высоким показателем $\hat\beta_2$:
+```{r}
+all_table %>% select(year, aic, hat_beta, r2) %>% 
+  arrange(-hat_beta) %>%
+  head(5)
+```
+
 
 
 
