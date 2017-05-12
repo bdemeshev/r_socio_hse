@@ -97,5 +97,14 @@ ols_res
 AIC(ols_res[[8, 3]])
 ```
 
+Вытаскиваем все AIC
+```{r}
+# столбец-список
+aic_table <- ols_res %>% mutate(aic = map(ols, ~ AIC(.x)))
+aic_table
+# столбец-вектор
+aic_table <- ols_res %>% mutate(aic = map_dbl(ols, ~ AIC(.x)))
+aic_table
+```
 
 
