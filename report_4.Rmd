@@ -77,14 +77,25 @@ map(two_years, ~ lm(data = .x, lifeExp ~ gdpPercap)) %>%
 
 В клетках таблицы могут жить бэби-таблички :)
 ```{r}
-by_year <- gapminder %>% nest(-year)
+by_year <- gapminder %>% nest(-year, .key = "baby_table")
 by_year # таблица-мама
 by_year[[5, 2]] # бэби таблица
 # занимающая 5 строку и 2 столбец в таблице-маме
 ```
 
+Теперь применяем lm с помощью map для таблицы-мамы:
+```{r}
+ols_res <- by_year %>% mutate(
+  ols = map(baby_table, ~ lm(data = .x, lifeExp ~ gdpPercap)))
+ols_res[[8, 3]] %>% summary()
+ols_res
+```
 
 
+Вытаскиваем AIC. Сначала вытаскиваем один (1) AIC:
+```{r}
+AIC(ols_res[[8, 3]])
+```
 
 
 
