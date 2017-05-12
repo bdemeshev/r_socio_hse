@@ -126,8 +126,7 @@ tidy(model_1952)[2, "estimate"]
 ```{r}
 all_table <- aic_table %>% mutate(
   hat_beta = map_dbl(ols, ~ tidy(.x)[2, "estimate"]),
-  r2 = map_dbl(ols, ~ glance(.x)[["r.squared"]])
-)
+  r2 = map_dbl(ols, ~ glance(.x)[["r.squared"]]) )
 all_table
 ```
 
