@@ -180,4 +180,7 @@ future <- forecast(model, h = 24)
 autoplot(future)
 ```
 
+Ссылка:
+
+[Hyndman, Auto time series forecasting](https://www.jstatsoft.org/article/view/v027i03/v27i03.pdf)
 
