@@ -22,7 +22,9 @@ glimpse(gapminder)
 x <- c(3, 5, 9)
 cos(x)
 # не повезло
-
+year_1952 <- filter(gapminder, year == 1952)
+model_1952 <- lm(data = year_1952, lifeExp ~ gdpPercap)
+summary(model_1952)
 ```
 
 
