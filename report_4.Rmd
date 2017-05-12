@@ -7,7 +7,8 @@ output: html_document
 
 ```{r}
 library(tidyverse) # манипуляции с данными
-library(gapminder) # набор данных 
+library(gapminder) # набор данных
+library(stargazer) # пакет для оформления нескольких регрессий в одну табличку
 ```
 
 Набор данных по развитию разных стран с сайта [gapminder.org](gapminder.org).
@@ -24,8 +25,50 @@ cos(x)
 # не повезло
 year_1952 <- filter(gapminder, year == 1952)
 model_1952 <- lm(data = year_1952, lifeExp ~ gdpPercap)
+
+model_1952 <- lm(data = filter(gapminder, year == 1952), lifeExp ~ gdpPercap)
+
+model_1952 <- gapminder %>% 
+  filter(year == 1952) %>%
+  lm(formula = lifeExp ~ gdpPercap)
+
 summary(model_1952)
+# для реализации AND пишем , или &
+filter(gapminder, year == 1952, pop > 10^6)
+# для реализации OR пишем |
+filter(gapminder, year == 1952 | year == 1953)
+
+
+year_1957 <- filter(gapminder, year == 1957)
+model_1957 <- lm(data = year_1957, lifeExp ~ gdpPercap)
+
+# lm(data = list(year_1952, year_1957), lifeExp ~ gdpPercap)
 ```
+
+Решение такое: любую функцию можно заставить бегать по списку:
+```{r}
+x
+cos(x)
+map(x, ~ cos(.x))
+```
+
+
+Применим lm сразу к двум наборам данных:
+```{r}
+two_years <- list(year_1952, year_1957)
+# two_years[[1]]
+map(two_years, ~ lm(data = .x, lifeExp ~ gdpPercap))
+# version 1
+two_years %>% map(~ lm(data = .x, lifeExp ~ gdpPercap))
+```
+
+Отменяем "аскетичное" оформление (results='asis') и добавляем красивое (stargazer)
+
+```{r}
+
+```
+
+
 
 
 
