@@ -137,9 +137,47 @@ all_table %>% select(year, aic, hat_beta, r2) %>%
   head(5)
 ```
 
+Что посмотреть и почитать:
+[Видео от Hadley Wickham](http://edinbr.org/edinbr/2016/05/11/may-Hadley-Update2-PostingTalk.html)
+
+[Презенташка от Lyttle](http://ijlyttle.github.io/isugg_purrr/presentation.html)
+
+Прогнозы за (-5) минут:
+
+```{r}
+library(forecast) # прогнозирование (ARIMA / ETS / theta)
+library(sophisthse) # скачивание макро-рядов с sophist.hse.ru
+```
 
 
+Загружаем ряд и прогнозируем его:
+```{r}
+series_info # смотрим список рядов
+# View(series_info)
+unempl <- sophisthse("UNEMPL_M") # качаем ряд с сайта sophist.hse.ru
+unempl
+```
 
+Построить график:
+```{r}
+ggtsdisplay(unempl)
+```
 
+Авто-арима:
+```{r}
+model <- auto.arima(unempl)
+model
+```
+
+Прогнозы:
+```{r}
+forecast(model, h = 3)
+```
+
+Графики прогнозов:
+```{r}
+future <- forecast(model, h = 24)
+autoplot(future)
+```
 
 
