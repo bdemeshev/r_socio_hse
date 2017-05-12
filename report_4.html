@@ -139,6 +139,7 @@ library(stargazer) # пакет для оформления нескольких
 ## Please cite as:</code></pre>
 <pre><code>##  Hlavac, Marek (2015). stargazer: Well-Formatted Regression and Summary Statistics Tables.</code></pre>
 <pre><code>##  R package version 5.2. http://CRAN.R-project.org/package=stargazer</code></pre>
+<pre class="r"><code>library(broom) # для извлечения всего интересного из разных моделей в виде табличек</code></pre>
 <p>Набор данных по развитию разных стран с сайта <a href="gapminder.org" class="uri">gapminder.org</a>.</p>
 <pre class="r"><code>glimpse(gapminder)</code></pre>
 <pre><code>## Observations: 1,704
@@ -447,6 +448,135 @@ F Statistic (df = 1; 140)
 </td>
 </tr>
 </table>
+<pre class="r"><code># map(two_years, ~ lm(data = .x, lifeExp ~ gdpPercap)) %&gt;%
+#  stargazer(type = &quot;text&quot;)
+# map(two_years, ~ lm(data = .x, lifeExp ~ gdpPercap)) %&gt;%
+#  stargazer(type = &quot;latex&quot;)</code></pre>
+<p>В клетках таблицы могут жить бэби-таблички :)</p>
+<pre class="r"><code>by_year &lt;- gapminder %&gt;% nest(-year, .key = &quot;baby_table&quot;)
+by_year # таблица-мама</code></pre>
+<pre><code>## # A tibble: 12 × 2
+##     year         baby_table
+##    &lt;int&gt;             &lt;list&gt;
+## 1   1952 &lt;tibble [142 × 5]&gt;
+## 2   1957 &lt;tibble [142 × 5]&gt;
+## 3   1962 &lt;tibble [142 × 5]&gt;
+## 4   1967 &lt;tibble [142 × 5]&gt;
+## 5   1972 &lt;tibble [142 × 5]&gt;
+## 6   1977 &lt;tibble [142 × 5]&gt;
+## 7   1982 &lt;tibble [142 × 5]&gt;
+## 8   1987 &lt;tibble [142 × 5]&gt;
+## 9   1992 &lt;tibble [142 × 5]&gt;
+## 10  1997 &lt;tibble [142 × 5]&gt;
+## 11  2002 &lt;tibble [142 × 5]&gt;
+## 12  2007 &lt;tibble [142 × 5]&gt;</code></pre>
+<pre class="r"><code>by_year[[5, 2]] # бэби таблица</code></pre>
+<pre><code>## # A tibble: 142 × 5
+##        country continent lifeExp      pop  gdpPercap
+##         &lt;fctr&gt;    &lt;fctr&gt;   &lt;dbl&gt;    &lt;int&gt;      &lt;dbl&gt;
+## 1  Afghanistan      Asia  36.088 13079460   739.9811
+## 2      Albania    Europe  67.690  2263554  3313.4222
+## 3      Algeria    Africa  54.518 14760787  4182.6638
+## 4       Angola    Africa  37.928  5894858  5473.2880
+## 5    Argentina  Americas  67.065 24779799  9443.0385
+## 6    Australia   Oceania  71.930 13177000 16788.6295
+## 7      Austria    Europe  70.630  7544201 16661.6256
+## 8      Bahrain      Asia  63.300   230800 18268.6584
+## 9   Bangladesh      Asia  45.252 70759295   630.2336
+## 10     Belgium    Europe  71.440  9709100 16672.1436
+## # ... with 132 more rows</code></pre>
+<pre class="r"><code># занимающая 5 строку и 2 столбец в таблице-маме</code></pre>
+<p>Теперь применяем lm с помощью map для таблицы-мамы:</p>
+<pre class="r"><code>ols_res &lt;- by_year %&gt;% mutate(
+  ols = map(baby_table, ~ lm(data = .x, lifeExp ~ gdpPercap)))
+ols_res[[8, 3]] %&gt;% summary()</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = lifeExp ~ gdpPercap, data = .x)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -18.0815  -4.7174   0.4064   5.9393  13.7084 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 5.567e+01  8.139e-01   68.39   &lt;2e-16 ***
+## gdpPercap   9.551e-04  7.121e-05   13.41   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 7.008 on 140 degrees of freedom
+## Multiple R-squared:  0.5624, Adjusted R-squared:  0.5592 
+## F-statistic: 179.9 on 1 and 140 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code>ols_res</code></pre>
+<pre><code>## # A tibble: 12 × 3
+##     year         baby_table      ols
+##    &lt;int&gt;             &lt;list&gt;   &lt;list&gt;
+## 1   1952 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;
+## 2   1957 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;
+## 3   1962 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;
+## 4   1967 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;
+## 5   1972 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;
+## 6   1977 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;
+## 7   1982 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;
+## 8   1987 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;
+## 9   1992 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;
+## 10  1997 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;
+## 11  2002 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;
+## 12  2007 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;</code></pre>
+<p>Вытаскиваем AIC. Сначала вытаскиваем один (1) AIC:</p>
+<pre class="r"><code>AIC(ols_res[[8, 3]])</code></pre>
+<pre><code>## [1] 959.9416</code></pre>
+<p>Вытаскиваем все AIC</p>
+<pre class="r"><code># столбец-список
+aic_table &lt;- ols_res %&gt;% mutate(aic = map(ols, ~ AIC(.x)))
+aic_table</code></pre>
+<pre><code>## # A tibble: 12 × 4
+##     year         baby_table      ols       aic
+##    &lt;int&gt;             &lt;list&gt;   &lt;list&gt;    &lt;list&gt;
+## 1   1952 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; &lt;dbl [1]&gt;
+## 2   1957 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; &lt;dbl [1]&gt;
+## 3   1962 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; &lt;dbl [1]&gt;
+## 4   1967 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; &lt;dbl [1]&gt;
+## 5   1972 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; &lt;dbl [1]&gt;
+## 6   1977 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; &lt;dbl [1]&gt;
+## 7   1982 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; &lt;dbl [1]&gt;
+## 8   1987 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; &lt;dbl [1]&gt;
+## 9   1992 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; &lt;dbl [1]&gt;
+## 10  1997 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; &lt;dbl [1]&gt;
+## 11  2002 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; &lt;dbl [1]&gt;
+## 12  2007 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; &lt;dbl [1]&gt;</code></pre>
+<pre class="r"><code># столбец-вектор
+aic_table &lt;- ols_res %&gt;% mutate(aic = map_dbl(ols, ~ AIC(.x)))
+aic_table</code></pre>
+<pre><code>## # A tibble: 12 × 4
+##     year         baby_table      ols       aic
+##    &lt;int&gt;             &lt;list&gt;   &lt;list&gt;     &lt;dbl&gt;
+## 1   1952 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; 1107.5628
+## 2   1957 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; 1105.3649
+## 3   1962 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; 1093.4269
+## 4   1967 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; 1069.7433
+## 5   1972 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; 1064.9603
+## 6   1977 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; 1025.9307
+## 7   1982 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;  978.0611
+## 8   1987 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;  959.9416
+## 9   1992 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt;  997.3169
+## 10  1997 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; 1006.0196
+## 11  2002 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; 1031.4341
+## 12  2007 &lt;tibble [142 × 5]&gt; &lt;S3: lm&gt; 1027.7597</code></pre>
+<p>Извлекаем коэффициенты и R^2 из отдельной регрессии</p>
+<pre class="r"><code>coef(model_1952) # просто вектор из двух коэффиентов</code></pre>
+<pre><code>##  (Intercept)    gdpPercap 
+## 4.769913e+01 3.646691e-04</code></pre>
+<pre class="r"><code>glance(model_1952) # общие показатели по модели (пакет broom)</code></pre>
+<pre><code>##    r.squared adj.r.squared    sigma statistic      p.value df    logLik
+## 1 0.07729713     0.0707064 11.78581  11.72815 0.0008079675  2 -550.7814
+##        AIC     BIC deviance df.residual
+## 1 1107.563 1116.43 19446.73         140</code></pre>
+<pre class="r"><code>tidy(model_1952) # табличка с коэффициентами (пакет broom)</code></pre>
+<pre><code>##          term     estimate   std.error statistic      p.value
+## 1 (Intercept) 4.769913e+01 1.065627777 44.761527 7.789944e-85
+## 2   gdpPercap 3.646691e-04 0.000106484  3.424639 8.079675e-04</code></pre>
 
 
 

@@ -9,6 +9,7 @@ output: html_document
 library(tidyverse) # манипуляции с данными
 library(gapminder) # набор данных
 library(stargazer) # пакет для оформления нескольких регрессий в одну табличку
+library(broom) # для извлечения всего интересного из разных моделей в виде табличек
 ```
 
 Набор данных по развитию разных стран с сайта [gapminder.org](gapminder.org).
@@ -106,5 +107,33 @@ aic_table
 aic_table <- ols_res %>% mutate(aic = map_dbl(ols, ~ AIC(.x)))
 aic_table
 ```
+
+Извлекаем коэффициенты и R^2 из отдельной регрессии
+```{r}
+coef(model_1952) # просто вектор из двух коэффиентов
+glance(model_1952) # общие показатели по модели (пакет broom)
+tidy(model_1952) # табличка с коэффициентами (пакет broom)
+```
+
+```{r}
+glance(model_1952)[["r.squared"]]
+tidy(model_1952)[2, "estimate"]
+# gdpinfo <- tidy(model_1952) %>% filter(term == "gdpPercap")
+# gdpinfo["estimate"]
+```
+
+Финальная табличка:
+```{r}
+all_table <- aic_table %>% mutate(
+  hat_beta = map_dbl(ols, ~ tidy(.x)[2, "estimate"]),
+  r2 = map_dbl(ols, ~ glance(.x)[["r.squared"]])
+)
+all_table
+```
+
+
+
+
+
 
 
