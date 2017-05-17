@@ -12,8 +12,35 @@ library(tidyverse) # манипуляции с данными и графики
 library(glmnet) # LASSO (ridge regression)
 library(stargazer) # красивое оформление таблиц в html/latex
 library(pander) # красивое оформление таблиц
+library(car) # вспомогательные функции для линейных и не только моделей
 ```
 
 
+```{r}
+help(diamonds)
+glimpse(diamonds)
+```
 
+Модель с большим количеством регрессоров.
+
+МНК:
+
+```{r}
+model_A <- lm(data = diamonds, price ~ carat * cut)
+summary(model_A)
+linearHypothesis(model_A, "carat + carat:cut.L = 0")
+```
+
+Книжка "An R Companion to Applied Regression"
+
+```{r}
+model_B <- lm(data = diamonds, price ~ carat * cut * clarity * x + y + z)
+summary(model_B)
+```
+
+Применяем лассо!
+
+```{r}
+model_lasso <- glmnet()
+```
 
