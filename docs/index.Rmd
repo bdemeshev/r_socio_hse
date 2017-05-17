@@ -33,10 +33,9 @@ lang: ru-RU
 
 
 
+* 17 мая 2017, ауд. 324. Иерархические модели — начало. Пожалуйста, перед началом занятия поставьте: STAN: [инструкция по-русски](https://bdemeshev.github.io/installation/r_stan/r_stan_installation.html), официальный [сайт STAN](http://mc-stan.org), `rstanarm`, `shinystan`, `bayesplot`, `loo`. [report_5.Rmd](https://github.com/bdemeshev/r_socio_hse/raw/master/report_5.Rmd).
+
 План:
-
-
-* 17 мая 2017, ауд. 324. Иерархические модели — начало. Пожалуйста, перед началом занятия поставьте: STAN: [инструкция по-русски](https://bdemeshev.github.io/installation/r_stan/r_stan_installation.html), официальный [сайт STAN](http://mc-stan.org), `rstanarm`, `shinystan`, `bayesplot`, `loo`. 
 
 * 19 мая 2017, ауд. 320а.  Иерархические модели — окончание. Вопросы-ответы.
 

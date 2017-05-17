@@ -1,0 +1,19 @@
+---
+title: "Untitled"
+author: "Винни-Пух"
+date: "5/17/2017"
+output: html_document
+---
+
+Для выбора "разумных" регрессоров из большого количества можно использовать метод LASSO.
+
+```{r}
+library(tidyverse) # манипуляции с данными и графики
+library(glmnet) # LASSO (ridge regression)
+library(stargazer) # красивое оформление таблиц в html/latex
+library(pander) # красивое оформление таблиц
+```
+
+
+
+
