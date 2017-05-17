@@ -61,4 +61,59 @@ new_expanded
 predict(model_lasso, s = 107.4, new_expanded)
 ```
 
+Домашнее задание:
+
+1. Поделите выборку на 2 части (80% + 20%)
+2. Оцените модель лассо по 80%
+3. Спрогнозируйте на 20%
+4. Посчитайте сумму квадратов ошибок прогнозов
+
+```{r}
+plot(model_lasso, "dev", label = TRUE)
+plot(model_lasso, "lambda", label = TRUE)
+?plot.glmnet
+```
+
+
+поставьте пакеты: `mfx`, `survey`
+
+logit - модель :)
+Упростим переменную cut до двух категорий:
+```{r}
+library(mfx) # подсчет предельных эффектов в логит/пробит-моделях
+str(diamonds$cut) # структура любого объекта
+levels(diamonds$cut)
+diamonds2 <- diamonds %>% 
+  mutate(cut2 = ifelse(cut > "Good", 1, 0))
+```
+
+Оцениваем логит-модель
+```{r}
+# help(package = "mfx") # документация по пакету
+# help(logitmfx) # документация по функции
+model_logit <- logitmfx(data = diamonds2, 
+          cut2 ~ carat + price + color, atmean = TRUE)
+# atmean = TRUE - предельный эффект для среднего наблюдения
+# atmean = FALSE - средний предельный эффект по всем наблюдениям
+model_logit
+```
+
+
+
+Посмотреть на carat
+```{r}
+qplot(data = diamonds, x = carat)
+```
+
+Вытащить коэффициенты:
+```{r}
+str(model_logit, max.level = 1)
+summary(model_logit$fit)
+```
+
+
+
+
+
+
 
