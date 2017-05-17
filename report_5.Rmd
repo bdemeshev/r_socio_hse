@@ -41,6 +41,24 @@ summary(model_B)
 Применяем лассо!
 
 ```{r}
-model_lasso <- glmnet()
+my_happy_y <- diamonds$price
+X <- model.matrix(data = diamonds, ~ carat * cut * clarity * x + y + z)
+model_lasso <- glmnet(X, my_happy_y)
 ```
+
+Смотрим на результаты:
+```{r}
+model_lasso
+coef(model_lasso, s = 107.4)
+```
+
+Прогнозы:
+```{r}
+new <- diamonds[3, ]
+new_expanded <- model.matrix(
+  data = new, ~ carat * cut * clarity * x + y + z)
+new_expanded
+predict(model_lasso, s = 107.4, new_expanded)
+```
+
 
