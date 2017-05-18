@@ -25,6 +25,7 @@ glimpse(diamonds)
 
 МНК:
 
+
 ```{r}
 model_A <- lm(data = diamonds, price ~ carat * cut)
 summary(model_A)
@@ -32,6 +33,8 @@ linearHypothesis(model_A, "carat + carat:cut.L = 0")
 ```
 
 Книжка "An R Companion to Applied Regression"
+
+Презентация Fox о разных типах anova и тестировании [линейных гипотез](https://www.r-project.org/conferences/useR-2011/TalkSlides/Contributed/17Aug_1705_FocusV_4-Multivariate_1-Fox.pdf)
 
 ```{r}
 model_B <- lm(data = diamonds, price ~ carat * cut * clarity * x + y + z)
