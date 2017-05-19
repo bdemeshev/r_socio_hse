@@ -25,3 +25,48 @@ mcmc_intervals(model_lm_array,
 mcmc_intervals(model_lm_array, pars = "carat")
 mcmc_hist(model_lm_array, pars = "carat")
 posterior_interval(model_lm_bayes, pars = "carat")
+
+posterior_vs_prior(model_lm_bayes, pars = "carat")
+
+# посчитать elpd
+# сравниваем две модели по elpd (лучше, где больше)
+loo_1 <- loo(model_lm_bayes)
+
+loo_2 <- loo(конкурирующая модель)
+
+compare_models(loo_1, loo_2)
+
+# прогнозы
+two_diamonds = data_frame(carat = c(1, 3, mean(diamonds$carat)))
+forecasted_price <- posterior_predict(model_lm_bayes, 
+                  newdata = two_diamonds)
+summary(forecasted_price)
+
+str(forecasted_price)
+
+qplot(forecasted_price[, 1])
+
+
+# иерархические модели
+library(lme4)
+data("sleepstudy")
+
+glimpse(sleepstudy)
+
+d <- sleepstudy
+count(d, Subject)
+
+
+#model_1 <- stan_lmer(data = sleepstudy, 
+#                     Reaction ~ 1 + Days, seed = 777)
+model_2 <- stan_lmer(data = sleepstudy, 
+                     Reaction ~ (1|Subject) + Days, seed = 777)
+model_3 <- stan_lmer(data = sleepstudy, 
+                     Reaction ~ (1 + Days|Subject), seed = 777)
+model_3_bis <- stan_lmer(data = sleepstudy, 
+                     Reaction ~ (1|Subject) + (0 + Days|Subject), 
+                     seed = 777)
+summary(model_3_bis)
+
+posterior_interval(model_3_bis, pars = "b[Days Subject:349]")
+
