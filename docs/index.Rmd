@@ -35,9 +35,11 @@ lang: ru-RU
 
 * 17 мая 2017, ауд. 324. Тестирование гипотез о коэффициентах в линейной модели. Lasso. Logit и предельные эффекты. [report_5.Rmd](https://github.com/bdemeshev/r_socio_hse/raw/master/report_5.Rmd).
 
-План:
 
 * 19 мая 2017, ауд. 320а.  Иерархические модели — окончание. Вопросы-ответы.  Пожалуйста, перед началом занятия поставьте: STAN: [инструкция по-русски](https://bdemeshev.github.io/installation/r_stan/r_stan_installation.html), официальный [сайт STAN](http://mc-stan.org), `rstanarm`, `shinystan`, `bayesplot`, `loo`.
+
+[script_05_bayes.R](https://github.com/bdemeshev/r_socio_hse/raw/master/script_05_bayes.R).
+
 
 Место: Мясницкая 9/11. Приносите свои ноутбуки!!
 
