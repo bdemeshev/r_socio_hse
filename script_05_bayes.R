@@ -69,4 +69,6 @@ model_3_bis <- stan_lmer(data = sleepstudy,
 summary(model_3_bis)
 
 posterior_interval(model_3_bis, pars = "b[Days Subject:349]")
+# https://socserv.socsci.mcmaster.ca/jfox/Books/Companion/appendix/Appendix-Mixed-Models.pdf
+
 
